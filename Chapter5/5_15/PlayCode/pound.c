@@ -9,7 +9,7 @@ int main(void)
 
 	pound(iTest);
 	pound(cTest);
-	pound(fTest);
+	pound((int)fTest);
 
 	return 0;
 }
