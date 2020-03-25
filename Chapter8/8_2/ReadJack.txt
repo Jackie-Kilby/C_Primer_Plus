@@ -1,0 +1,1 @@
+In Linux/UNIX world, we use Ctrl+D at a new line to demonstrate EOF.
