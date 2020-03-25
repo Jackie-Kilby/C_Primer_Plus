@@ -15,9 +15,7 @@ int main(void)
 }
 void pound(int n)
 {
-	unsigned int i = 0;
-	for (i=n ; i>0 ; i--) {
+	while(n-- > 0)
 		printf("#");
-	}
 	printf("\n");
 }
