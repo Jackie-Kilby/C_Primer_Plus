@@ -1,7 +1,27 @@
+/* There is an online calculator to calculate sum of squares:
+http://www.99cankao.com/algebra/sum-of-squares.php
+*/
+
 if input:
 r 4
 output is
 0
-because input is not number.
+FAIL: because input is not number.
 
+if input:
+10000
+10000
+output is
+100000000
+PASS
 
+if input:
+4 r
+output will let input again.
+PASS
+
+if input:
+6
+5
+output input again.
+PASS

@@ -12,18 +12,17 @@ int main(void)
 	long begin = 0, end = 0;
 	printf("Please input the range :\n");
 	//Get the range [begin,end]
-	printf("low limit:");
-	begin = get_long();
-	printf("high limit:");
-	end = get_long();
-	//Judge the range available.
-	if(is_limit_ok(begin,end)) {
-		//Calculate the sum and output
-		long sum_square = get_sum_square(begin, end);
-		printf("sum_quare = %ld\r\n", sum_square);
-	} else {
-		printf("The limit is not good.\r\n");
-	}
+	do {
+		printf("low limit:");
+		begin = get_long();
+		printf("high limit:");
+		end = get_long();
+		//Judge the range available.
+	} while(!is_limit_ok(begin,end));
+
+	//Calculate the sum and output
+	long sum_square = get_sum_square(begin, end);
+	printf("sum_quare = %ld\r\n", sum_square);
 
 	return 0;
 }
