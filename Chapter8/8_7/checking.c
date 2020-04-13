@@ -6,14 +6,16 @@
 
 static int is_limit_ok(long begin, long end);
 static long get_sum_square(long begin, long end);
-
+static long get_long(void);
 int main(void)
 {
 	long begin = 0, end = 0;
-	printf("Please input the range with 格式 \"begin end\" and input enter to end:\n");
+	printf("Please input the range :\n");
 	//Get the range [begin,end]
-	scanf("%ld", &begin);
-	scanf("%ld", &end);
+	printf("low limit:");
+	begin = get_long();
+	printf("high limit:");
+	end = get_long();
 	//Judge the range available.
 	if(is_limit_ok(begin,end)) {
 		//Calculate the sum and output
@@ -49,4 +51,20 @@ static long get_sum_square(long begin, long end)
 	}
 
 	return sum_square;
+}
+
+static long get_long(void)
+{
+	long input = 0;
+	char ch = 0;
+
+	while((scanf("%ld", &input)) != 1)
+	{
+		while((ch = getchar()) != '\n')
+			putchar(ch);
+		printf(" is not an integar, please input again:\r\n");
+
+	}
+
+	return input;
 }
