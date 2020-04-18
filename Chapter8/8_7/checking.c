@@ -1,24 +1,27 @@
 /* Calculate the sum square of a range of number */
 #include <stdio.h>
+#include <stdbool.h>
 
+/* Not same with BOOK, but I think this is also right */
 #define VALID_MIN	-10000000
 #define VALID_MAX	 10000000
 
-static int is_limit_ok(long begin, long end);
+static bool is_limit_bad(long begin, long end);
 static long get_sum_square(long begin, long end);
 static long get_long(void);
+
 int main(void)
 {
 	long begin = 0, end = 0;
-	printf("Please input the range :\n");
-	//Get the range [begin,end]
 	do {
+		printf("Please input the range :\n");
+		//Get the range [begin,end]
 		printf("low limit:");
 		begin = get_long();
 		printf("high limit:");
 		end = get_long();
 		//Judge the range available.
-	} while(!is_limit_ok(begin,end));
+	} while(is_limit_bad(begin,end));
 
 	//Calculate the sum and output
 	long sum_square = get_sum_square(begin, end);
@@ -27,18 +30,21 @@ int main(void)
 	return 0;
 }
 
-static int is_limit_ok(long begin, long end)
+static bool is_limit_bad(long begin, long end)
 {
-	int ret = 1;
+	bool not_good = false;
+
+	/* Not same with BOOK, but I think this is also right */
 	if (begin < VALID_MIN || end > VALID_MAX) {
 		printf("The range is outof scope.\r\n");
-		ret = 0;
+		not_good = true;
 	}
 	if(begin > end){
 		printf("The range is not reasonable.\r\n");
-		ret = 0;
+		not_good = true;
 	}
-	return ret;
+
+	return not_good;
 }
 
 static long get_sum_square(long begin, long end)
@@ -59,10 +65,11 @@ static long get_long(void)
 
 	while((scanf("%ld", &input)) != 1)
 	{
+		putchar('\"');
 		while((ch = getchar()) != '\n')
 			putchar(ch);
+		putchar('\"');
 		printf(" is not an integar, please input again:\r\n");
-
 	}
 
 	return input;
