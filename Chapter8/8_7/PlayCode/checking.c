@@ -9,27 +9,28 @@
 static bool is_limit_bad(long begin, long end);
 static double get_sum_square_double(long begin, long end);
 static long get_sum_square_long(long begin, long end);
+static long long get_sum_square_long_long(long begin, long end);
 static long get_long(void);
 
 int main(void)
 {
-	long begin = 0, end = 0;
-	do {
-		printf("Please input the range :\n");
-		//Get the range [begin,end]
-		printf("low limit:");
-		begin = get_long();
-		printf("high limit:");
-		end = get_long();
-		//Judge the range available.
-	} while(is_limit_bad(begin,end));
+	long begin = 1, end = 10000000;
+//	do {
+//		printf("Please input the range :\n");
+//		//Get the range [begin,end]
+//		printf("low limit:");
+//		begin = get_long();
+//		printf("high limit:");
+//		end = get_long();
+//		//Judge the range available.
+//	} while(is_limit_bad(begin,end));
 
 	//Calculate the sum and output
-	double sum_square_double = get_sum_square_double(begin, end);
-	long sum_square_long = get_sum_square_long(begin, end);
+	long i = 300081;
+	printf("long long = %I64d\r\n",(long long)i*(long long)i + get_sum_square_long_long(1,i-1));
+	printf("double    = %f\r\n",(double)i*(double)i + get_sum_square_double(1,i-1));
 
-	printf("sum_square_double = %f\r\n", sum_square_double);
-	printf("sum_square_long = %ld\r\n", sum_square_long);
+	getchar();getchar();
 
 	return 0;
 }
@@ -66,6 +67,17 @@ static long get_sum_square_long(long begin, long end)
 {
 	long i = 0;
 	long sum_square = 0;
+	for (i=begin ; i<=end ; i++) {
+		sum_square += i*i;
+	}
+
+	return sum_square;
+}
+
+static long long get_sum_square_long_long(long begin, long end)
+{
+	long long i=0;
+	long long sum_square = 0;
 	for (i=begin ; i<=end ; i++) {
 		sum_square += i*i;
 	}
