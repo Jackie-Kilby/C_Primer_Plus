@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define CEILING_METHOD	1
+#define CEILING_METHOD	3
 
 static float ceiling(float fl);
 
@@ -35,5 +35,11 @@ static float ceiling(float fl)
 		return (int)fl +1.0;
 	else
 		return fl;
+}
+#elif (CEILING_METHOD == 3)
+#include <math.h>					//Attention: if using GCC to compile, must add -lm to build. Because GCC do not use libm.so (printf is in libc.so) library files by default.
+static float ceiling(float fl)
+{
+	return ceil(fl);
 }
 #endif
