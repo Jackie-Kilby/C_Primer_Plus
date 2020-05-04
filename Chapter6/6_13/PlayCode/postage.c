@@ -6,9 +6,12 @@ int main(void)
 	int const NEXT_OZ = 20;
 	int ounces, cost;
 
-	printf("Onces cost\n");
-	for(ounces = 1, cost = FIRST_OZ; ounces <= 16; cost += NEXT_OZ, ounces++)
-		printf("%-5d $%4.2f\n", ounces, cost/100.0);
+	printf("What's the weight of your package?\n");
+	while (1 != scanf("%d", &ounces)) {
+		printf("Sorry, please check your input is an integar, and input again:");
+	}
+	cost = FIRST_OZ + (ounces - 1) * NEXT_OZ;
+	printf("The cost is %.2f\n", cost/100.0);
 
 	return 0;
 }
