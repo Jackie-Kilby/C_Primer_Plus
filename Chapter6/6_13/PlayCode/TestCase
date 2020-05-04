@@ -1,0 +1,6 @@
+Input		Should Output
+1			0.46
+1.0			0.46
+2.00		0.66
+2.01		0.86
+2.001		0.86				METHOD_1 is better than METHOD_2

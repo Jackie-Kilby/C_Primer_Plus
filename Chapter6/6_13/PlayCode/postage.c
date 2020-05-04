@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define ROUND_UP_METHOD	1
+
 static float round_up(float fl);
 
 int main(void)
@@ -18,13 +20,20 @@ int main(void)
 
 	return 0;
 }
-
+#if (ROUND_UP_METHOD == 1)
 static float round_up(float fl)
 {
-	if ((int)fl != fl) {
+	if ((int)fl != fl)
 		return (int)fl + 1.0;
-	}
 	else 
-		return (int)fl;
+		return fl;
 }
-
+#elif (ROUND_UP_METHOD == 2)
+static float round_up(float fl)
+{
+	if (0 != ((int)(fl*100)%100))
+		return (int)fl +1.0;
+	else
+		return fl;
+}
+#endif
