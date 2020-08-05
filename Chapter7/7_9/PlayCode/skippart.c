@@ -22,6 +22,8 @@ int main(void)
 			max = max > score ? max : score;
 			printf("%0.1f is recorded. Now please input next score(q to quit):", score);
 		}
+		while (getchar() != '\n')
+			continue;
 	}
 	if (n>0) {
 		printf("%d scores' avearge score is %.2f\r\n", n, total/n);
