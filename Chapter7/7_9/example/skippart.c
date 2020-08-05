@@ -14,14 +14,14 @@ int main(void)
 	printf("Please input first score (q to quit): ");
 	while ((scanf("%f", &score) == 1)) {
 		if (score > MAX || score < MIN) {
-			printf("Please input score again (q to quit): ");
+			printf("%0.1f is an invalid value. Input again (q to quit): ", score);
 			continue;
 		}
 		n ++;
 		total += score;
 		min = min < score ? min : score;
 		max = max > score ? max : score;
-		printf("Now please input next score(q to quit):");
+		printf("%0.1f is recorded. Now please input next score(q to quit):", score);
 	}
 	if (n>0) {
 		printf("%d scores' avearge score is %.2f\r\n", n, total/n);
