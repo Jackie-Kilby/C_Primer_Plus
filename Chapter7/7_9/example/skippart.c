@@ -23,8 +23,12 @@ int main(void)
 		max = max > score ? max : score;
 		printf("Now please input next score(q to quit):");
 	}
-	printf("%d scores' avearge score is %.2f\r\n", n, total/n);
-	printf("Max is %.1f, Min is %.1f\r\n", max, min);
+	if (n>0) {
+		printf("%d scores' avearge score is %.2f\r\n", n, total/n);
+		printf("Max is %.1f, Min is %.1f\r\n", max, min);
+	} else {
+		printf("No valid scores were entered.\r\n");
+	}
 
 	return 0;
 }
