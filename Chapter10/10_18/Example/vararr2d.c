@@ -7,7 +7,7 @@
 #define COLS	4
 
 
-int sum2d(int rows, int cols, int arr[rows][cols])
+int sum2d(int rows, int cols, int ar[rows][cols])
 {
 	int r = 0;
 	int c = 0;
@@ -15,7 +15,7 @@ int sum2d(int rows, int cols, int arr[rows][cols])
 
 	for (r=0 ; r<rows ; r++) {
 		for (c=0 ; c<cols ; c++) {
-			tot += arr[r][c];
+			tot += ar[r][c];
 		}
 	}
 
@@ -24,38 +24,37 @@ int sum2d(int rows, int cols, int arr[rows][cols])
 
 int main(void)
 {
-	int rs = 4;
-	int cs = 3;
-	int i = 0;
-	int j = 0;
+	int i,j;
+	int rs = 3;
+	int cs = 10;
 
 	int junk[ROWS][COLS] = {
-		2,4,6,8,
-		1,3,5,7,
-		10,12,9,8
+		{ 2, 4, 6, 8},
+		{ 3, 5, 7, 9},
+		{12,10, 8, 6}
 	};
 
 	int morejunk[ROWS-1][COLS+2] = {
-		2,4,6,8,10,12,
-		1,3,5,7,9,11
+		{20,30,40,50,60,70},
+		{ 5, 6, 7, 8, 9,10}
 	};
 
-	int vla[rs][cs];
+	int varr[rs][cs];
 
 	for (i=0 ; i<rs ; i++) {
 		for (j=0 ; j<cs ; j++) {
-			vla[i][j] = i*j+i;
+			varr[i][j] = i*j+j;
 		}
 	}
 
-	printf("sum of array 1\n");
-	printf("%d\n", sum2d(ROWS, COLS, junk));
+	printf("3x4 array\n");
+	printf("Sum of all elements = %d\n", sum2d(ROWS, COLS, junk));
 
-	printf("sum of array 2\n");
-	printf("%d\n", sum2d(ROWS-1, COLS+2, morejunk));
+	printf("2x6 array\n");
+	printf("Sum of all elements = %d\n", sum2d(ROWS-1, COLS+2, morejunk));
 
-	printf("sum of vla\n");
-	printf("%d\n", sum2d(rs,cs,vla));
+	printf("4x10 array\n");
+	printf("Sum of all elements = %d\n", sum2d(rs,cs,varr));
 
 	return 0;
 }
