@@ -10,11 +10,11 @@ the unimaginative. - Oscar Wilde"
 #define FMT "X is %d\n"
 int main(void)
 {
-	int x = TWO;
-	PX;
+	int x = TWO;				//int x = 2;
+	PX;							//printf("X is %d\n", x);
 
-	x = FOUR;
-	printf("%s\n", OW);
-	printf(FMT, x);
-	printf("TWO:OW\n");
+	x = FOUR;					//x = TWO*TWO;
+	printf("%s\n", OW);			//printf("%s\n", "Consistency is ...");
+	printf(FMT, x);				//printf("X is %d\n", x);
+	printf("TWO:OW\n");			//printf("TWO:OW\n");
 }

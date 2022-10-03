@@ -1,21 +1,16 @@
-/* A simple example of pre-process using #define */
+/* String can be printf by #defing STRING and const char* string */
 #include <stdio.h>
 
 #define TWO 2 			//Using comment is ok
-#define PX printf("X is %d\n", x);
-#define OW "Consistency is the last refuge of \
-the unimaginative. - Oscar Wilde"
 
-#define FOUR TWO*TWO
 #define FMT "X is %d\n"
-const char * fmt = "X is %d\n";
+const char * fmt = "X is %d\n";			//PlayCode: This is also okay. Amazing!
+
 int main(void)
 {
 	int x = TWO;
-	PX;
 
-	x = FOUR;
-	printf("%s\n", OW);
+	//int printf(char * fmt, ...);
+	printf(FMT, x);
 	printf(fmt, x);
-	printf("TWO:OW\n");
 }
